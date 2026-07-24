@@ -1,0 +1,25 @@
+# Daily workflow: the Real-HAT normal/sharper pair selected by real-hat-auto,
+# plus the HAT-S x2/x4 checkpoints retained as the fast rollback profile.
+[models.hat_s_x2]
+kind = "gdrive"
+id = "1Y7-3IgWfIAui9BMQIsFT9CzZXVMlx__e"
+filename = "hat/HAT-S_SRx2.pth"
+sha256 = "3e249a901c2aed6b82548875e21847ef6c015a40c814237a7a0abb10c69d5ddf"
+
+[models.hat_s_x4]
+kind = "gdrive"
+id = "1YvU9PF1XqlP8TVzH7P0bg-YlfP1TKDPC"
+filename = "hat/HAT-S_SRx4.pth"
+sha256 = "a92f81bd2c0c1aaa371a6e4d6cac69e749fde2e36196885ee47a4a3667542c9a"
+
+[models.real_hat_gan_x4]
+kind = "gdrive"
+id = "1Ma12vCWT27P9M99-s2RXnynKN-OQsBrv"
+filename = "hat/Real_HAT_GAN_SRx4.pth"
+sha256 = "f5b1e3bbbb05147ca2beefcc715279cb647d7976cbda67d62ea7e6e20d5ffcc7"
+
+[models.real_hat_gan_sharper_x4]
+kind = "gdrive"
+id = "1EioFq5-mKmv1uqta_Byd9cgXp9SU3zjj"
+filename = "hat/Real_HAT_GAN_SRx4_sharper.pth"
+sha256 = "5800b67136006eb8cab3b4ed7c8d73b6a195bb18e6cc709b674f9aa069c00271"

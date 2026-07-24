@@ -1,0 +1,26 @@
+name: Bug report
+description: Report a reproducible problem without private data.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach manga pages, checkpoints, local configs, absolute paths, or unredacted logs.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the observed and expected behavior using synthetic or redacted data.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include a safe configuration fragment and command, with all local paths replaced by placeholders.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Runtime summary
+      description: Provide relevant software versions only. Do not include usernames, hostnames, paths, or device serials.

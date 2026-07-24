@@ -1,0 +1,48 @@
+[paths]
+# Copy this file to config.toml and change only these project-relative paths.
+# Keep Input and Output disjoint. The repository does not ship images or models.
+input = "Input"
+output = "Output"
+models = "models"
+
+[processing]
+# EXIF-normalized short edge < 1000 uses normal; >= 1000 uses sharper.
+# Both variants execute native x4 before linear-light resizing to the target edge.
+profile = "real-hat-auto"
+target_short_edge = 1600
+real_hat_sharper_min_short_edge = 1000
+max_long_edge_for_sr = 3200
+max_upscale_factor = 4
+max_output_long_edge = 6400
+max_output_megapixels = 24.0
+precision = "bf16"
+tile = 256
+overlap = 64
+hat_tile = 256
+hat_tile_candidates = [256, 320]
+hat_overlap = 16
+batch_tiles = 1
+device_assembly = true
+model_cache_size = 2
+grayscale_tolerance = 3
+linear_light_downscale = true
+
+[output]
+# Safe public default: preserve sources and write to the separate output root.
+mode = "mirror"
+format = "jxl"
+copy_non_images = true
+overwrite = false
+existing_jxl_policy = "error"
+allow_lossy_replace = false
+allow_metadata_loss = false
+allow_alpha_flatten = false
+allow_bit_depth_loss = false
+
+[jxl]
+distance = 0.5
+effort = 7
+threads = 4
+workers = 1
+queue_depth = 2
+verify_decode = true
