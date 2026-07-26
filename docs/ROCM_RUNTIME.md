@@ -48,8 +48,8 @@ Before a new stack is trusted for real images:
 2. Run a mirror-mode single-page check with synthetic or copied disposable
    input.
 3. Confirm JXL encode/decode verification and source preservation.
-4. Run the 12-page quality screen and 30-page performance gate described in
-   [PERFORMANCE.md](PERFORMANCE.md).
+4. Run a small copied quality screen and the 30-page performance gate described
+   in [PERFORMANCE.md](PERFORMANCE.md).
 
 Use a separate environment for a runtime upgrade. Record only redacted,
 aggregate results in public discussions; raw logs can reveal machine paths,

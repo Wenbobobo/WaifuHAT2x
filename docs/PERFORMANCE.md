@@ -45,9 +45,10 @@ Use only copied, isolated images that can remain private.
    need coefficient of variation below 3%, with peak reserved VRAM under the
    chosen device limit.
 
-The included `scripts/research_runtime.py` enforces isolated roots and refuses
-to run GPU research while a production watchdog or worker is active. It writes
-research-v1 records locally; those records are intentionally ignored by Git.
+This public tree no longer ships the private research harnesses used for the
+original sweep. Keep any new runner outside Git until it has a clear production
+purpose, and always include a production-process gate that refuses to run while
+a watchdog or worker is active.
 
 ## Acceptance gates
 
@@ -70,7 +71,10 @@ Before considering a fused attention path, a trusted native Linux profiler must
 show that the target accounts for at least 15% of end-to-end time or 20% of GPU
 time. The order of investigation is: existing ATen/Inductor behavior, a
 semantically equivalent high-level attention path, a narrow Triton prototype,
-then HIP/CK only if the projected page-level gain remains material.
+then HIP/CK only if the projected page-level gain remains material. Production
+code does not import Triton or ship custom Triton kernels; the pinned ROCm
+Triton wheel remains only because the ROCm PyTorch wheel set needs it to
+resolve reproducibly.
 
 Never publish copied pages, raw profiler traces, model files, output hashes, or
 machine fingerprints with a performance report. Publish normalized aggregate

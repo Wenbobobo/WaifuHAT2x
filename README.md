@@ -114,7 +114,7 @@ source image, and candidate. Confirm no worker is still running, then rerun the
 same configuration. The recovery system prefers retaining both files over
 guessing which one is safe to delete. Full procedure: [Operations](docs/OPERATIONS.md).
 
-## Performance work
+## Performance notes
 
 The sustained bottleneck is model forward work, not JPEG XL or file transfers.
 The production settings are BF16 eager, adaptive tiles `[256, 320]`, overlap
@@ -122,11 +122,12 @@ The production settings are BF16 eager, adaptive tiles `[256, 320]`, overlap
 cross-page batching, dual streams, GPU resize, ONNX/DirectML, MIGraphX, and a
 hipBLASLt preference under their quality or full-page wall-clock gates.
 
-For a new runtime or backend candidate, use the isolated research runner with
-your own copied pages. Screen with 12 representative pages, then use a fixed
-30-page gate. Never commit the pages, raw metrics, output hashes, profiler
-traces, or screenshots. [Performance protocol](docs/PERFORMANCE.md) defines
-the acceptance criteria.
+The public tree intentionally keeps production code and the small isolated soak
+attestation tool only. Private research runners, blind-review builders,
+profiler wrappers, and raw benchmark tooling were removed after the accepted
+configuration stabilized. For a new runtime or backend candidate, use your own
+copied pages outside Git, screen with a small representative set, and promote
+only after the acceptance criteria in [Performance protocol](docs/PERFORMANCE.md).
 
 ## Development
 

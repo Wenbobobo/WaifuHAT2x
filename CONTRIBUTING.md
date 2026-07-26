@@ -36,11 +36,16 @@ does not download weights, run ROCm, or execute source-deleting workflows.
 
 ## Performance changes
 
-Do not promote a faster microbenchmark by itself. Use a copied 12-page screen
-first and a fixed 30-page final gate. Report paired full-page wall time,
+Do not promote a faster microbenchmark by itself. Use a copied representative
+screen first and a fixed 30-page final gate. Report paired full-page wall time,
 route-by-tile breakdown, peak reserved VRAM, deterministic output checks, and
-blind ROI review for any numerical change. Do not add custom kernels unless a
-trusted native profiler first proves an Amdahl-worthy target.
+blind ROI review for any numerical change.
+
+The public repository does not carry the retired private benchmark harnesses or
+profiler wrappers. If a new performance direction is worth pursuing, keep raw
+artifacts outside Git and add only the smallest reviewed production surface
+after the gate passes. Do not add custom kernels unless a trusted native
+profiler first proves an Amdahl-worthy target.
 
 ## Pull requests
 
