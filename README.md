@@ -5,7 +5,8 @@ AMD ROCm PyTorch runtime. It is designed for repeatable personal libraries,
 not for cloud processing or a generic image enhancement service.
 
 [中文说明](README.zh-CN.md) | [Operations](docs/OPERATIONS.md) |
-[ROCm runtime notes](docs/ROCM_RUNTIME.md) | [Performance protocol](docs/PERFORMANCE.md)
+[ROCm runtime notes](docs/ROCM_RUNTIME.md) | [Performance protocol](docs/PERFORMANCE.md) |
+[Release checklist](docs/RELEASE_CHECKLIST.md)
 
 ## What it does
 
@@ -142,9 +143,9 @@ python scripts/check_public_tree.py
 python -m pytest -q
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for privacy rules, performance gates, and
-pull-request expectations. Report security or data-safety concerns privately as
-described in [SECURITY.md](SECURITY.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for privacy rules, performance gates,
+the release checklist, and pull-request expectations. Report security or
+data-safety concerns privately as described in [SECURITY.md](SECURITY.md).
 
 ## License
 

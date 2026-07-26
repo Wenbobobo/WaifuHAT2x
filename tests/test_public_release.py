@@ -43,6 +43,30 @@ def test_package_and_public_metadata_share_a_version() -> None:
     assert metadata["project"]["version"] == __version__ == "1.0.0"
 
 
+def test_download_extra_uses_patched_gdown() -> None:
+    with (ROOT / "pyproject.toml").open("rb") as source:
+        metadata = tomllib.load(source)
+
+    assert metadata["project"]["optional-dependencies"]["download"] == [
+        "gdown==5.2.2"
+    ]
+
+
+def test_release_checklist_is_documented() -> None:
+    checklist = ROOT / "docs" / "RELEASE_CHECKLIST.md"
+    assert checklist.is_file()
+    text = checklist.read_text(encoding="utf-8")
+    assert "production watchdog" in text
+    assert "Dependabot" in text
+    assert "runtime-bound" in text
+    assert "docs/RELEASE_CHECKLIST.md" in (ROOT / "README.md").read_text(
+        encoding="utf-8"
+    )
+    assert "docs/RELEASE_CHECKLIST.md" in (
+        ROOT / "CONTRIBUTING.md"
+    ).read_text(encoding="utf-8")
+
+
 def test_public_release_omits_retired_research_surface() -> None:
     for relative in RETIRED_RESEARCH_FILES:
         assert not (ROOT / relative).exists()

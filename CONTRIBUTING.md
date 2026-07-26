@@ -33,6 +33,7 @@ python -m pytest -q
 
 Hosted CI is CPU-only. It verifies unit behavior and public-tree hygiene; it
 does not download weights, run ROCm, or execute source-deleting workflows.
+Before tagging or publishing, also follow [the release checklist](docs/RELEASE_CHECKLIST.md).
 
 ## Performance changes
 

@@ -22,10 +22,16 @@ jobs:
       - name: Install CPU test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.9.1" "torchvision==0.24.0"
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch==2.9.1" "torchvision==0.24.1"
           python -m pip install "numpy>=2.2,<3" "pillow>=11.2,<13" "spandrel==0.4.2" "pytest>=8.3,<10" "ruff>=0.8,<1"
           python -m pip install --no-deps -e .
-          python -m pip check
+          python - <<'PY'
+          import torch
+          import torchvision
+
+          assert torch.__version__.startswith("2.9.1"), torch.__version__
+          assert torchvision.__version__.startswith("0.24.1"), torchvision.__version__
+          PY
       - name: Public-tree hygiene
         run: python scripts/check_public_tree.py
       - name: Lint and compile

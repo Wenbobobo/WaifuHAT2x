@@ -17,7 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3,<10", "ruff>=0.8,<1"]
-download = ["gdown==5.2.0"]
+download = ["gdown==5.2.2"]
 
 [project.scripts]
 waifuhat2x = "waifuhat2x.cli:main"
